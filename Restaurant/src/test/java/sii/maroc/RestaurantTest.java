@@ -28,12 +28,13 @@ public class RestaurantTest {
 
     /**
      * write a test to ensure that when a recipe require out of stocks ingredients we receive an UnavailableDishException (unchecked)
+     * @throws UnavailableDishException 
      */
 // Allowed modification zone starts here
-    @Test
-    public void shouldFailWhenOutOfStock() throws UnavailableDishException{
-        
-    	Assert.fail();
+    @Test(expected=UnavailableDishException.class)
+    public void shouldFailWhenOutOfStock() throws UnavailableDishException {	
+        Restaurant restaurant = new Restaurant("6 balls Mozzarella", "20 tomatoes", "olive oil", "pepper");
+        restaurant.isOutStock("8 Tomato Mozzarella Salad");
     }
 // Allowed modification zone ends here
 
